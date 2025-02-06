@@ -8,3 +8,10 @@ jobs:
     runs-on: cirrus-ml-github-runners
     steps:
     - run: echo "🎉 This job uses runner scale set runners!"
+
+  test-starting-container:
+    runs-on: cirrus-ml-github-runners
+    container:
+      image: rockylinux:9
+    steps:
+    - run: echo "running in the rocky container"
