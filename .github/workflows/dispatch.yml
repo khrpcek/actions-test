@@ -1,0 +1,19 @@
+name: repository dispatch test
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        uses: peter-evans/repository-dispatch@v3
+        with: 
+          token: ${{ secrets.chartsPAT }}
+          repository: NCAR/cisl-cloud-charts
+          event-type: test-event
+          client-payload: '{"ref": "{{ $github.ref }}", "sha": "${{ github.sha::7 }}"}'
+
