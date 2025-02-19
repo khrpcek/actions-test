@@ -12,8 +12,14 @@ jobs:
       - name: Run a one-line script
         uses: peter-evans/repository-dispatch@v3
         with: 
-          token: ${{ secrets.chartsPAT }}
-          repository: NCAR/cisl-cloud-charts
-          event-type: test-event
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "asdf": "jkl"}'
+          token: ${{ secrets.cirrusdeployPAT }}
+          repository: NCAR/cirrus-deploy
+          event-type: commit
+          client-payload: |- 
+            {
+              "repository": "${{ github.repository }}", 
+              "ref": "${{ github.ref }}", 
+              "sha": "${{ github.sha }}", 
+              "argoApp": "kmh-actions-test"}'
+            }
 
