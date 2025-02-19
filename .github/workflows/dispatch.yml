@@ -17,9 +17,9 @@ jobs:
           event-type: commit
           client-payload: |- 
             {
-              "repository": "${{ github.repository }}", 
-              "ref": "${{ github.ref }}", 
-              "sha": "${{ github.sha }}", 
+              "repository": "${{ github.repository }}",
+              "ref": "${{ github.ref }}",
+              "sha": "${{ github.sha }}",
               "argoApp": "kmh-actions-test"}'
             }
 
