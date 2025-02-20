@@ -20,7 +20,7 @@ jobs:
         platforms: linux/amd64
         driver: remote
         endpoint: http://buildkit.arc-systems.mgmt-cluster.local:1234
-#    - name: Build
+    - name: Build
 #      uses: redhat-actions/buildah-build@v2
 #      with:
 #        image: demo
