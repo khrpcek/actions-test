@@ -14,18 +14,20 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
     - name: install buildah
       run: dnf -y install buildah
-#    - name: Set up Docker Buildx
-#      uses: docker/setup-buildx-action@v3
-#      with:
-#        platforms: linux/amd64
-    - name: Build
-      uses: redhat-actions/buildah-build@v2
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
       with:
-        image: demo
-        tags: ${{ github.sha }}
-        containerfiles: |
-          containers/Dockerfile
-#      uses: docker/build-push-action@v6
+        platforms: linux/amd64
+        driver: remote
+        endpoint: http://buildkit.arc-systems.mgmt-cluster.local:1234
+#    - name: Build
+#      uses: redhat-actions/buildah-build@v2
 #      with:
-#        push: false
-#        file: containers/Dockerfile
+#        image: demo
+#        tags: ${{ github.sha }}
+#        containerfiles: |
+#          containers/Dockerfile
+      uses: docker/build-push-action@v6
+      with:
+        push: false
+        file: containers/Dockerfile
