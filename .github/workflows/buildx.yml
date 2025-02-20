@@ -19,7 +19,7 @@ jobs:
       with:
         platforms: linux/amd64
         driver: remote
-        endpoint: tcp://buildkitd.arc-systems:1234
+        endpoint: tcp://buildkitd.arc-systems.ml-cluster.local:1234
     - name: Build
 #      uses: redhat-actions/buildah-build@v2
 #      with:
