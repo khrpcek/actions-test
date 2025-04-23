@@ -12,7 +12,7 @@ jobs:
   test-starting-container:
     runs-on: gha-runner-actions-test
     container:
-      image: rockylinux:9
+      image: benjaminkirk/gh-ci-x86_64-almalinux9-oneapi-openmpi
     steps:
     - run: |
         echo "running in the rocky container"
