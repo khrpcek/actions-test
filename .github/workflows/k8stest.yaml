@@ -17,3 +17,5 @@ jobs:
     - run: |
         echo "running in the rocky container"
         ls -l /glade
+        echo uid $UID
+        id
