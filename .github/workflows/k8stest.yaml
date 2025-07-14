@@ -7,7 +7,11 @@ jobs:
     # You need to use the INSTALLATION_NAME from the previous step
     runs-on: gha-runner-actions-test
     steps:
-    - run: echo "🎉 This job uses runner scale set runners!"
+    - run: |
+        echo "running in default container"
+        ls -l /glade
+        echo uid $UID
+        id
 
   test-starting-container:
     runs-on: gha-runner-actions-test
@@ -15,7 +19,7 @@ jobs:
       image: benjaminkirk/gh-ci-x86_64-almalinux9-oneapi-openmpi
     steps:
     - run: |
-        echo "running in the rocky container"
+        echo "running in the custom container"
         ls -l /glade
         echo uid $UID
         id
