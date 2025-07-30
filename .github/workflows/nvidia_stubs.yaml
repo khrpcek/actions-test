@@ -59,6 +59,7 @@ jobs:
         env
         which mpicc
         mpicc --version 2>/dev/null || true
+        GITHUB_PATH=$PATH
 
     - name: MPI+OpenMP Hello World
       run: |
