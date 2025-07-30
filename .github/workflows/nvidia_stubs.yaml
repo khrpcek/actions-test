@@ -5,7 +5,7 @@ on:
 
 jobs:
   hpcbenchmarksosu:
-    runs-on: gpu-runner
+    runs-on: gha-runner-actions-test
     container: 
       image: ncarcisl/cisldev-x86_64-almalinux9-aocc-mpich3-cuda:25.07
     steps:
