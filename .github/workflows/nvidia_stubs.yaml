@@ -62,6 +62,8 @@ jobs:
 
     - name: MPI+OpenMP Hello World
       run: |
+        echo $LD_LIBRARY_PATH
+        echo $PATH
         mpicxx -o ./hello_world_mpi /container/extras/hello_world_mpi.C -fopenmp
         ldd ./hello_world_mpi
         export OMP_NUM_THREADS=2
