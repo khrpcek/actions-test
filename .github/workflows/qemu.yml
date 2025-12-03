@@ -22,7 +22,7 @@ jobs:
     - name: registry login
       uses: docker/login-action@v3
       with:
-        registry: hub.k8s.ucar.edu/kmh-actions-test
+        registry: hub.k8s.ucar.edu/khrpcek
         username: robot-gha
         password: ${{ secrets.hub_password }}
     - name: Setup qemu
@@ -33,7 +33,7 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         push: true
-        tags: hub.k8s.ucar.edu/kmh-actions-test/kmh-actions-test:latest
+        tags: hub.k8s.ucar.edu/khrpcek/kmh-actions-test:latest
         file: containers/Dockerfile
         cache-from: "type=registry,ref=hub.k8s.ucar.edu/kmh-actions-test/kmh-actions-test:cache"
         cache-to: "type=registry,ref=hub.k8s.ucar.edu/kmh-actions-test/kmh-actions-test:cache,image-manifest=true,mode=max"
