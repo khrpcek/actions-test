@@ -36,5 +36,5 @@ jobs:
         push: true
         tags: hub.k8s.ucar.edu/khrpcek/kmh-actions-test:latest
         file: containers/Dockerfile
-        cache-from: "type=registry,ref=hub.k8s.ucar.edu/kmh-actions-test/kmh-actions-test:cache"
-        cache-to: "type=registry,ref=hub.k8s.ucar.edu/kmh-actions-test/kmh-actions-test:cache,image-manifest=true,mode=max"
+        cache-from: "type=registry,ref=hub.k8s.ucar.edu/khrpcek/kmh-actions-test:cache"
+        cache-to: "type=registry,ref=hub.k8s.ucar.edu/khrpcek/kmh-actions-test:cache,image-manifest=true,mode=max"
