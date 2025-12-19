@@ -1,0 +1,22 @@
+name: Pull request test
+on: 
+  push:
+    pull_requests:
+      types: [labeled, synchronize]
+  workflow_dispatch:
+
+jobs:
+  test1:
+    if: >-
+      github.event_name == 'push' || 
+      (github.event_name == 'pull_request_target' && (
+        (github.event.action == 'labeled' && github.event.label.name == 'ready_for_ci') ||
+        (github.event.action == 'synchronize' && contains(github.event.pull_request.labels.*.name, 'ready_for_ci'))
+      ))
+    runs-on: gha-runner-actions-test
+    steps:
+      - name: cirrus test
+        run: | 
+          echo "Event: ${{ github.event_name }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Ref: ${{ github.ref }}"
