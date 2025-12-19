@@ -1,7 +1,6 @@
 name: Pull request test
 on: 
-  push:
-    pull_requests:
+  pull_requests:
       types: [labeled, synchronize]
   workflow_dispatch:
 
