@@ -20,3 +20,11 @@ jobs:
           echo "Event: ${{ github.event_name }}"
           echo "Actor: ${{ github.actor }}"
           echo "Ref: ${{ github.ref }}"
+  test2:
+    runs-on: gha-runner-actions-test
+    steps:
+      - name: cirrus test
+        run: | 
+          echo "Event: ${{ github.event_name }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Ref: ${{ github.ref }}"
